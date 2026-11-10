@@ -1,26 +1,275 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* ==========================================================================
+   DESIGN TOKENS
+   `@theme inline` so the next/font CSS variables resolve at use time.
+   ========================================================================== */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Palette (from the brief) */
+  --color-ivory: #f3f0ea;      /* main background */
+  --color-charcoal: #252225;   /* text + dark surfaces */
+  --color-plum: #806477;       /* primary accent */
+  --color-mauve: #c6b5c2;      /* secondary accent (decoration / on dark) */
+  --color-sand: #c8c1b8;       /* supporting elements */
+  --color-lavender: #ded4db;   /* highlights, gradients */
+  /* Added: darker plum for the sculpture's deepest folds and dark surfaces */
+  --color-plum-deep: #4e3a48;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument), ui-serif, Georgia, serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, SFMono-Regular, monospace;
+
+  /* Type scale: sized so each hero headline line stays on one line */
+  --text-display: clamp(2.75rem, 6vw, 6.5rem);
+  --text-display--line-height: 0.95;
+  --text-display--letter-spacing: -0.035em;
+
+  --text-headline: clamp(2.25rem, 4.6vw, 4.5rem);
+  --text-headline--line-height: 1;
+  --text-headline--letter-spacing: -0.03em;
+
+  --text-label: 0.6875rem;
+  --text-label--line-height: 1.2;
+  --text-label--letter-spacing: 0.14em;
+
+  /* Motion */
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+html {
+  background-color: var(--color-ivory);
+  scroll-padding-top: 5rem; /* clears the navbar for #anchor links */
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-ivory);
+  color: var(--color-charcoal);
+  font-family: var(--font-sans);
+  line-height: 1.65;
+  overflow-x: clip; /* decorative SVGs never cause sideways scroll */
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+::selection {
+  background-color: var(--color-plum);
+  color: var(--color-ivory);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-plum);
+  outline-offset: 3px;
+}
+
+/* ==========================================================================
+   TYPE UTILITIES
+   ========================================================================== */
+
+/* Small uppercase DM Mono labels. Keep these charcoal on ivory (plum is only
+   ~4.6:1 and gets weak at this size). */
+@utility label-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  line-height: var(--text-label--line-height);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+}
+
+/* Outlined headline word. Use on ONE large word, never on small text. */
+@utility text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--color-charcoal);
+  paint-order: stroke fill;
+}
+
+/* Masked line reveal. Wrap each headline line like:
+   <span class="mask-line"><span class="anim-line [--d:150ms]">Building</span></span>
+   Bottom padding + negative margin keeps descenders and the italic serif
+   overhang from being clipped without changing line spacing. */
+@utility mask-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+  padding-right: 0.08em;
+}
+
+@utility mask-line-inner {
+  display: block;
+}
+
+/* ==========================================================================
+   HERO ENTRANCE (CSS only, no JavaScript)
+   Set the delay per element with an arbitrary property: className="[--d:600ms]"
+   Suggested order: label 0ms, lines 150/260/370/480ms, sculpture 650ms,
+   portrait 1000ms, description + CTAs 1300ms+.
+   Transform + opacity only.
+   ========================================================================== */
+@keyframes line-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sculpture-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes portrait-in {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility anim-line {
+  display: block;
+  animation: line-rise 1s var(--ease-editorial) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@utility anim-fade-up {
+  animation: fade-up 0.8s var(--ease-editorial) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@utility anim-sculpture {
+  animation: sculpture-in 1.2s var(--ease-editorial) both;
+  animation-delay: var(--d, 0ms);
+}
+
+@utility anim-portrait {
+  animation: portrait-in 1s var(--ease-editorial) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* ==========================================================================
+   SCROLL REVEAL (CSS side; the Intersection Observer hook is yours)
+   1. On mount, your hook adds `reveal-ready` to <html>. Until then nothing is
+      hidden, so there is no invisible content before hydration.
+   2. Your observer adds `is-visible` to each `.reveal` / `.reveal-lines`
+      element when it enters the viewport.
+   Stagger with className="[--d:120ms]".
+   ========================================================================== */
+@layer components {
+  .reveal-ready .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+      opacity 0.8s var(--ease-editorial),
+      transform 0.8s var(--ease-editorial);
+    transition-delay: var(--d, 0ms);
+  }
+
+  .reveal-ready .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Headings: put `reveal-lines` on the heading and wrap each line in
+     <span class="mask-line"><span class="mask-line-inner">…</span></span> */
+  .reveal-ready .reveal-lines .mask-line-inner {
+    transform: translateY(105%);
+    transition: transform 1s var(--ease-editorial);
+    transition-delay: var(--d, 0ms);
+  }
+
+  .reveal-ready .reveal-lines.is-visible .mask-line-inner {
+    transform: translateY(0);
+  }
+
+  /* Toolkit chart: lines draw in, dots and labels fade in after them.
+     Triggered by the same is-visible class on the .reveal wrapper. */
+  .reveal-ready .chart-line {
+    stroke-dasharray: 1 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 2.2s cubic-bezier(0.45, 0, 0.2, 1);
+    transition-delay: var(--d, 0ms);
+  }
+
+  .reveal-ready .reveal.is-visible .chart-line {
+    stroke-dashoffset: 0;
+  }
+
+  .reveal-ready .chart-end {
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    transition-delay: var(--d, 0ms);
+  }
+
+  .reveal-ready .reveal.is-visible .chart-end {
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   REDUCED MOTION: everything is simply present
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .anim-line,
+  .anim-fade-up,
+  .anim-sculpture,
+  .anim-portrait {
+    animation: none;
+  }
+
+  .reveal-ready .reveal,
+  .reveal-ready .reveal-lines .mask-line-inner {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .reveal-ready .chart-line {
+    stroke-dashoffset: 0;
+    transition: none;
+  }
+
+  .reveal-ready .chart-end {
+    opacity: 1;
+    transition: none;
+  }
 }
