@@ -1,181 +1,207 @@
 # Muhammad Hamzah — Developer Portfolio
 
-A personal developer portfolio built with **Next.js, React, and Tailwind CSS**. It introduces my approach to web development, explains the areas I work across, and showcases selected projects as I continue learning and building.
-
-The visual direction is editorial and minimal: a warm, light palette, expressive typography, layered portrait artwork, generous spacing, and restrained motion.
-
-## Overview
-
-This portfolio is designed to do more than list technologies. It tells visitors how I approach building for the web, what I'm learning, and the projects I've worked on so far.
-
-The site is organized into focused sections:
-
-- **Hero** — a short introduction, portrait composition, and links to explore the work or get in touch.
-- **Introduction** — how I approach building, what I'm learning, and where I want to grow.
-- **What I Do** — an approachable overview of frontend, backend, and database development.
-- **Featured Projects** — selected frontend and backend projects with descriptions, technologies, and repository links.
-- **Toolkit** — a visual overview of the technologies I'm learning and my self-assessed progress.
-- **Footer** — contact and navigation details.
-
-## Design & Experience
-
-The interface uses a light, warm background with charcoal text and muted plum accents. Typography and layout do most of the visual work, supported by sculptural artwork and carefully layered imagery.
-
-A few principles guide the design:
-
-- **Editorial visual hierarchy:** expressive headlines, serif italic accents, and compact monospace labels.
-- **Intentional spacing:** generous section spacing and clear content groupings.
-- **Responsive composition:** layouts adapt across desktop, tablet, and mobile screens.
-- **Subtle motion:** reveal effects and transitions add movement without relying on heavy animation.
-- **Reusable components:** page sections are separated into React components to keep the code organized.
-
-## Features
-
-- Responsive portfolio layout.
-- Component-based page architecture with React.
-- Custom hero composition using a portrait and SVG sculpture.
-- Scroll-triggered reveal animations.
-- Animated headline and visual transitions using CSS.
-- Featured project cards and direct GitHub links.
-- Technology progress visualization with a responsive text-based alternative.
-- Next.js image optimization through the `next/image` component.
-- Reduced-motion support in the reusable `Reveal` component.
-
-## Built With
-
-| Technology | Role |
-| --- | --- |
-| [Next.js](https://nextjs.org/) | React framework and application structure |
-| [React](https://react.dev/) | Component-based UI |
-| [Tailwind CSS](https://tailwindcss.com/) | Utility-first styling and responsive layouts |
-| JavaScript | Application and component logic |
-| CSS | Animation, transitions, and visual styling |
-| Git & GitHub | Version control and source hosting |
-
-The project currently uses **Next.js 16**, **React 19**, and **Tailwind CSS 4**.
-
-## Featured Projects
-
-### PantryChef
-
-An ingredient-based recipe discovery app. Users enter ingredients they have available and explore matching recipes, with each recipe linking to its original source.
-
-**Built with:** React, JavaScript, Spoonacular API
-
-[View PantryChef on GitHub](https://github.com/hamzah697/PantryChef)
-
 <p align="center">
-  <img src="public/images/pantrychef-preview.PNG" alt="PantryChef project preview" width="100%" />
+  <strong>A personal space for the things I build, the technologies I explore, and the progress I make as a web developer.</strong>
 </p>
 
-### Notes API
+<p align="center">
+  <a href="https://nextjs.org/"><img src="https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs" alt="Next.js 16" /></a>
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white" alt="React 19" /></a>
+  <a href="https://tailwindcss.com/"><img src="https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS 4" /></a>
+  <img src="https://img.shields.io/badge/JavaScript-ES6%2B-f7df1e?logo=javascript&logoColor=222" alt="JavaScript" />
+  <a href="https://github.com/hamzah697/Portfolio"><img src="https://img.shields.io/badge/Status-In_Progress-8b6b83" alt="Project status: in progress" /></a>
+</p>
 
-A REST API with CRUD functionality backed by MySQL. It includes user registration and login, password hashing, JWT authentication, and ownership checks so users can access only their own notes.
+<p align="center">
+  <a href="#-overview">Overview</a> ·
+  <a href="#-featured-projects">Projects</a> ·
+  <a href="#-tech-stack">Tech stack</a> ·
+  <a href="#-run-locally">Run locally</a> ·
+  <a href="#-connect">Connect</a>
+</p>
 
-**Built with:** Node.js, Express.js, MySQL, JWT, bcrypt
+---
 
-[View Notes API on GitHub](https://github.com/hamzah697/Notes_API)
+## ✦ Overview
 
-## Project Structure
+This portfolio is more than a list of technologies. It is a snapshot of my journey as a web developer — the way I think about building for the web, the tools I'm learning, and the projects I've worked on along the way.
 
-```text
-Portfolio/
-├── public/
-│   └── images/
-│       ├── pantrychef-preview.PNG
-│       └── potrait.png
-│
-├── src/
-│   └── app/
-│       ├── Components/
-│       │   ├── Footer.jsx
-│       │   ├── Hero.jsx
-│       │   ├── Introduction.jsx
-│       │   ├── Navbar.jsx
-│       │   ├── Projects.jsx
-│       │   ├── Reveal.jsx
-│       │   ├── Scrollreveal.jsx
-│       │   ├── Sculpture.jsx
-│       │   ├── Skills.jsx
-│       │   ├── Whatido.jsx
-│       │   └── site.js
-│       │
-│       ├── favicon.ico
-│       ├── globals.css
-│       ├── layout.js
-│       └── page.js
-│
-├── .gitignore
-├── eslint.config.mjs
-├── jsconfig.json
-├── next.config.mjs
-├── package-lock.json
-├── package.json
-└── README.md
-```
+The visual direction is **editorial, minimal, and expressive**: a warm light palette, charcoal typography, muted plum accents, layered portrait artwork, generous spacing, and subtle motion.
 
-## Getting Started
+## ✦ Explore the portfolio
 
-### Prerequisites
+| Section | What you'll find |
+| --- | --- |
+| **Hero** | A short introduction, portrait composition, and ways to explore the site. |
+| **Introduction** | My approach to development and what I'm working towards. |
+| **What I Do** | An overview of my frontend, backend, and database interests. |
+| **Featured Projects** | Selected work with project context, technologies, and repository links. |
+| **Toolkit** | The technologies I'm learning and practising. |
+| **Footer** | Navigation and contact details. |
 
-- [Node.js](https://nodejs.org/) (a version supported by the installed Next.js release)
-- npm
+## ✦ Featured projects
 
-### 1. Clone the repository
+### 01 — PantryChef
 
-```bash
-git clone https://github.com/hamzah697/Portfolio.git
-cd Portfolio
-```
+An ingredient-based recipe discovery app. Add ingredients you have available and explore matching recipes, with links to the original recipe source.
 
-### 2. Install dependencies
+<p align="center">
+  <a href="https://github.com/hamzah697/PantryChef">
+    <img src="public/images/pantrychef-preview.PNG" alt="PantryChef application preview showing ingredient search and recipe results" width="100%" />
+  </a>
+</p>
+<p align="center"><sub>Click the preview to explore the PantryChef repository.</sub></p>
 
-```bash
-npm install
-```
+**Built with:** React · JavaScript · Spoonacular API
 
-### 3. Run the development server
+[↗ Explore PantryChef on GitHub](https://github.com/hamzah697/PantryChef)
 
-```bash
-npm run dev
-```
+### 02 — Notes API
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+A REST API with create, read, update, and delete operations backed by MySQL. It includes registration and login, password hashing, JWT authentication, and ownership checks so users can access only their own notes.
 
-### Available Scripts
+**Built with:** Node.js · Express.js · MySQL · JWT · bcrypt
+
+[↗ Explore Notes API on GitHub](https://github.com/hamzah697/Notes_API)
+
+## ✦ Design & experience
+
+- **Editorial hierarchy** — expressive headlines, serif italic accents, and compact monospace labels.
+- **Warm, restrained palette** — light backgrounds, charcoal text, and muted plum accents.
+- **Intentional spacing** — generous section spacing and clear content groupings.
+- **Responsive layouts** — compositions adapt to desktop, tablet, and mobile screens.
+- **Lightweight motion** — scroll reveals and CSS transitions add movement without relying on heavy animation.
+- **Reusable components** — each major page section is separated into its own React component.
+
+## ✦ Tech stack
+
+<p>
+  <img src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white" alt="Next.js" />
+  <img src="https://img.shields.io/badge/React-19-149eca?logo=react&logoColor=white" alt="React" />
+  <img src="https://img.shields.io/badge/Tailwind_CSS-4-06b6d4?logo=tailwindcss&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://img.shields.io/badge/JavaScript-ES6%2B-f7df1e?logo=javascript&logoColor=222" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/CSS-Styling-663399?logo=css3&logoColor=white" alt="CSS" />
+  <img src="https://img.shields.io/badge/Git-Version_Control-f05032?logo=git&logoColor=white" alt="Git" />
+</p>
+
+| Technology | How it is used |
+| --- | --- |
+| [Next.js 16](https://nextjs.org/) | Application framework and routing |
+| [React 19](https://react.dev/) | Reusable UI components |
+| [Tailwind CSS 4](https://tailwindcss.com/) | Utility-first styling and responsive layouts |
+| JavaScript | Application and component logic |
+| CSS | Custom styling, transitions, and animation |
+| Git & GitHub | Version control and source hosting |
+
+## ✦ Run locally
+
+Want to explore the code or run the portfolio on your machine?
+
+<details open>
+  <summary><strong>1. Clone the repository</strong></summary>
+
+  ```bash
+  git clone https://github.com/hamzah697/Portfolio.git
+  cd Portfolio
+  ```
+</details>
+
+<details>
+  <summary><strong>2. Install dependencies</strong></summary>
+
+  ```bash
+  npm install
+  ```
+</details>
+
+<details>
+  <summary><strong>3. Start the development server</strong></summary>
+
+  ```bash
+  npm run dev
+  ```
+
+  Open [http://localhost:3000](http://localhost:3000) in your browser.
+</details>
+
+### Available scripts
 
 | Command | Description |
 | --- | --- |
-| `npm run dev` | Starts the local development server |
-| `npm run build` | Creates a production build |
-| `npm run start` | Starts the production server |
-| `npm run lint` | Runs ESLint |
+| `npm run dev` | Start the development server |
+| `npm run build` | Create a production build |
+| `npm run start` | Start the production server |
+| `npm run lint` | Run ESLint |
 
-## Customization
+## ✦ Project structure
 
-- Update the content and links in the relevant files inside `src/app/Components/`.
-- Replace the portrait at `public/images/potrait.png` with your own image.
-- Update project information and repository links in `Projects.jsx`.
-- Update the technology list and progress labels in `Skills.jsx`.
-- Adjust colors, typography, layout, and animation styles in `globals.css` and the component class names.
+<details>
+  <summary><strong>View the source structure</strong></summary>
 
-## Roadmap
+  ```text
+  Portfolio/
+  ├── public/
+  │   └── images/
+  │       ├── pantrychef-preview.PNG
+  │       └── potrait.png
+  │
+  ├── src/
+  │   └── app/
+  │       ├── Components/
+  │       │   ├── Footer.jsx
+  │       │   ├── Hero.jsx
+  │       │   ├── Introduction.jsx
+  │       │   ├── Navbar.jsx
+  │       │   ├── Projects.jsx
+  │       │   ├── Reveal.jsx
+  │       │   ├── Scrollreveal.jsx
+  │       │   ├── Sculpture.jsx
+  │       │   ├── Skills.jsx
+  │       │   ├── Whatido.jsx
+  │       │   └── site.js
+  │       ├── favicon.ico
+  │       ├── globals.css
+  │       ├── layout.js
+  │       └── page.js
+  │
+  ├── package.json
+  └── README.md
+  ```
+</details>
 
-- Add final screenshots of the portfolio at desktop and mobile sizes.
-- Review accessibility and keyboard navigation across all sections.
-- Continue refining responsive layouts and animation performance.
-- Expand the project showcase as new work is completed.
+## ✦ Current focus
 
-## Author
+- [x] Build a component-based portfolio with Next.js and React.
+- [x] Create a responsive visual direction with custom portrait artwork.
+- [x] Add subtle reveal and transition effects.
+- [x] Showcase frontend and backend projects.
+- [ ] Add dedicated desktop and mobile screenshots of the portfolio itself.
+- [ ] Continue refining accessibility, keyboard navigation, and responsive behaviour.
+- [ ] Add new projects as I build them.
 
-**Muhammad Hamzah**  
-Web developer learning by building projects and exploring modern web technologies.
+## ✦ Customization
 
-- [GitHub](https://github.com/hamzah697)
-- [LinkedIn](https://www.linkedin.com/)
+<details>
+  <summary><strong>Where to make changes</strong></summary>
+
+  - **Page sections:** edit the components inside `src/app/Components/`.
+  - **Portrait:** replace `public/images/potrait.png`.
+  - **Projects:** update project content and repository links in `Projects.jsx`.
+  - **Skills:** update the technologies and progress labels in `Skills.jsx`.
+  - **Global styling:** adjust the design tokens and styles in `globals.css`.
+</details>
+
+## ✦ Connect
+
+I'm learning by building, experimenting, and sharing the process.
+
+- **GitHub:** [github.com/hamzah697](https://github.com/hamzah697)
+- **Portfolio repository:** [github.com/hamzah697/Portfolio](https://github.com/hamzah697/Portfolio)
 
 ---
 
 <p align="center">
-  Built with Next.js, React, and Tailwind CSS.
+  <strong>Built with curiosity, code, and a lot of iteration.</strong>
+  <br />
+  <sub>Muhammad Hamzah · Web Developer</sub>
 </p>
